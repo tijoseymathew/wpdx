@@ -24,6 +24,13 @@ def clean_col_country_name(input_data):
     """
     return input_data
 
+def clean_col_install_year(input_data):
+    """
+    Clean values in column: "install_year"
+    Trello card: https://trello.com/c/KjLEFR24/8-column-installyear
+    """
+    return input_data
+
 
 if __name__ == '__main__':
     clean_columns('wpdx_sample_data.csv', 'cleaned_wpdx_sample_data.csv')
