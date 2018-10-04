@@ -1,5 +1,5 @@
 import csv
-
+import pandas
 
 def clean_columns(input_file, output_file):
     with open(input_file) as csvfile, open(output_file, 'wt') as writer:
@@ -24,6 +24,14 @@ def clean_col_country_name(input_data):
     """
     return input_data
 
+def clean_col_fecal_coliform_presence(input_data):
+    """
+    Clean values in column: "fecal_coliform_presence"
+    Trello card: https://trello.com/c/NCCXe8zG/13-column-fecalcoliformpresence
+    Categorical value with levels ["Absence", "Presence"]
+    """
+    lvls = ["Absence", "Presence"]
+    return pandas.Categorical(input_data, categories=lvls, ordered=False) 
 
 if __name__ == '__main__':
     clean_columns('wpdx_sample_data.csv', 'cleaned_wpdx_sample_data.csv')

@@ -1,5 +1,6 @@
 import pytest
 import clean_wpdx_sample_data
+import pandas
 
 # @pytest.mark.skip
 def test_clean_col_country_name():
@@ -7,3 +8,11 @@ def test_clean_col_country_name():
     Test the cleaning for column: "country_name"
     """
     assert clean_wpdx_sample_data.clean_col_country_name('NA') == 'NA'
+
+def test_clean_col_fecal_coliform_presence():
+    """
+    Test the cleaning for column: "fecal_coliform_presence"
+    """
+    assert pandas.isna(clean_wpdx_sample_data.clean_col_fecal_coliform_presence('junk'))
+    assert clean_wpdx_sample_data.clean_col_fecal_coliform_presence('Presence') == 'Presence'
+    assert clean_wpdx_sample_data.clean_col_fecal_coliform_presence('Absence') == 'Absence'
