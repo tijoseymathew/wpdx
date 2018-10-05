@@ -28,8 +28,23 @@ def clean_col_install_year(input_data):
     """
     Clean values in column: "install_year"
     Trello card: https://trello.com/c/KjLEFR24/8-column-installyear
+    
+    We need to produce a 4 digit integer. If year is string, casting it as
+    integer still works.
     """
-    return input_data
+    if type(input_data) == str:
+        input_data_length=min(4,len(input_data))
+        if str.isdigit(input_data[:input_data_length]) == True:
+            integer_input_data = int(input_data[:input_data_length])
+            output = integer_input_data
+        else:
+            output = 'None'
+    
+    else:
+        integer_input_data = int(input_data)
+        output = integer_input_data
+    
+    return output
 
 
 if __name__ == '__main__':
