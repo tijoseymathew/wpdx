@@ -24,6 +24,29 @@ def clean_col_country_name(input_data):
     """
     return input_data
 
+def clean_col_install_year(input_data):
+    """
+    Clean values in column: "install_year"
+    Trello card: https://trello.com/c/KjLEFR24/8-column-installyear
+    
+    We need to produce a 4 digit integer. If year is string, casting it as
+    integer still works.
+    """
+    if type(input_data) == str:
+        input_data_length=min(4,len(input_data))
+        if str.isdigit(input_data[:input_data_length]) == True:
+            integer_input_data = int(input_data[:input_data_length])
+            output = integer_input_data
+        else:
+            output = 'None'
+    
+    else:
+        integer_input_data = int(input_data)
+        output = integer_input_data
+    
+    return output
+
+
 def clean_col_fecal_coliform_presence(input_data):
     """
     Clean values in column: "fecal_coliform_presence"
@@ -32,6 +55,7 @@ def clean_col_fecal_coliform_presence(input_data):
     """
     lvls = ["Absence", "Presence"]
     return pandas.Categorical(input_data, categories=lvls, ordered=False) 
+
 
 if __name__ == '__main__':
     clean_columns('wpdx_sample_data.csv', 'cleaned_wpdx_sample_data.csv')
