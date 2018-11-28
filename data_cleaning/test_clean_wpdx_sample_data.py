@@ -23,3 +23,10 @@ def test_clean_col_fecal_coliform_presence():
     assert pandas.isna(clean_wpdx_sample_data.clean_col_fecal_coliform_presence('junk'))
     assert clean_wpdx_sample_data.clean_col_fecal_coliform_presence('Presence') == 'Presence'
     assert clean_wpdx_sample_data.clean_col_fecal_coliform_presence('Absence') == 'Absence'
+
+def test_clean_col_adm1():
+    """
+    Test the cleaning for column: "adm1"
+    """
+    assert clean_wpdx_sample_data.clean_col_adm1('singapore') == 'SINGAPORE'
+    assert clean_wpdx_sample_data.clean_col_adm1(' Singapore ') == 'SINGAPORE'

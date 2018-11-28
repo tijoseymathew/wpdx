@@ -46,7 +46,6 @@ def clean_col_install_year(input_data):
     
     return output
 
-
 def clean_col_fecal_coliform_presence(input_data):
     """
     Clean values in column: "fecal_coliform_presence"
@@ -56,6 +55,14 @@ def clean_col_fecal_coliform_presence(input_data):
     lvls = ["Absence", "Presence"]
     return pandas.Categorical(input_data, categories=lvls, ordered=False) 
 
+def clean_col_adm1(input_data):
+    """
+    Clean values in column: "adm1"
+    Trello card: https://trello.com/c/HHzNs0hS/1-column-adm1
+    """
+    input_data = input_data.upper()
+    input_data = input_data.strip()
+    return input_data
 
 if __name__ == '__main__':
     clean_columns('wpdx_sample_data.csv', 'cleaned_wpdx_sample_data.csv')
