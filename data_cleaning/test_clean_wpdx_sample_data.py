@@ -35,12 +35,12 @@ def test_clean_col_lat_deg():
     """
     Test the cleaning for column: "lat_deg"
     """
-    assert clean_wpdx_sample_data.clean_col_lat_deg('34.123123') == '34.1231'
+    assert clean_wpdx_sample_data.clean_col_lat_deg(34.123123) == 34.1231
 
     
 def test_clean_col_lon_deg():
     """
     Test the cleaning for column: "lon_deg"
     """
-    assert clean_wpdx_sample_data.clean_col_lon_deg('34.123123') == '34.1231'
+    assert clean_wpdx_sample_data.clean_col_lon_deg(34.123123) == 34.1231
 
