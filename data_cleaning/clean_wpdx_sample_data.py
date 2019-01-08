@@ -64,5 +64,22 @@ def clean_col_adm1(input_data):
     input_data = input_data.strip()
     return input_data
 
+def clean_col_lat_deg(input_data):
+    """
+    Clean values in column: "lat_deg"
+    Trello card: https://trello.com/c/51qHGAyc/25-column-latdeg-londeg
+    """
+    output=round(input_data,4)
+    return output
+
+def clean_col_lon_deg(input_data):
+    """
+    Clean values in column: "lon_deg"
+    Trello card: https://trello.com/c/51qHGAyc/25-column-latdeg-londeg
+    """
+    output=round(input_data,4)
+    return output
+
+
 if __name__ == '__main__':
     clean_columns('wpdx_sample_data.csv', 'cleaned_wpdx_sample_data.csv')
