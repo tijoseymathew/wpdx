@@ -52,3 +52,9 @@ def test_clean_col_lon_deg():
     """
     assert clean_wpdx_sample_data.clean_col_lon_deg(34.123123) == 34.1231
 
+def test_clean_col_management():
+    """
+    Test the cleaning for column: "management"
+    """
+    assert clean_wpdx_sample_data.clean_col_management('Direct Government Operation?,') == 'Direct Government Operation'
+    assert clean_wpdx_sample_data.clean_col_management('management') == 'Direct Government Operation'
