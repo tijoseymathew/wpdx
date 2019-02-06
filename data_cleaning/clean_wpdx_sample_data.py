@@ -24,6 +24,20 @@ def clean_col_country_name(input_data):
     """
     return input_data
 
+
+def clean_col_country_id(input_data):
+    if input_data.isalpha():
+        if len(input_data) == 2:
+            input_data = input_data.upper()
+            output = input_data
+        else:
+            output = 'None'
+    else:
+        output = 'None'
+
+    return output
+
+
 def clean_col_install_year(input_data):
     """
     Clean values in column: "install_year"

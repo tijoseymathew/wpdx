@@ -9,6 +9,14 @@ def test_clean_col_country_name():
     """
     assert clean_wpdx_sample_data.clean_col_country_name('NA') == 'NA'
 
+def test_clean_col_country_id():
+    """
+    Test the cleaning for column: "country_name"
+    """
+    assert clean_wpdx_sample_data.clean_col_country_id('ph') == 'PH'
+    assert clean_wpdx_sample_data.clean_col_country_id('P2') == 'None'
+
+
 def test_clean_col_install_year():
     """
     Test the cleaning for column: "install_year"
