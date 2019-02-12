@@ -41,3 +41,26 @@ def test_clean_col_adm1():
     """
     assert cwsd.clean_col_adm1('singapore') == 'SINGAPORE'
     assert cwsd.clean_col_adm1(' Singapore ') == 'SINGAPORE'
+
+    
+def test_clean_col_lat_deg():
+    """
+    Test the cleaning for column: "lat_deg"
+    """
+    assert cwsd.clean_col_lat_deg(34.123123) == 34.1231
+
+    
+def test_clean_col_lon_deg():
+    """
+    Test the cleaning for column: "lon_deg"
+    """
+    assert cwsd.clean_col_lon_deg(34.123123) == 34.1231
+
+
+def test_clean_col_management():
+    """
+    Test the cleaning for column: "management"
+    """
+    assert cwsd.clean_col_management('Direct Government Operation?,') == 'Direct Government Operation'
+    assert cwsd.clean_col_management('management') == 'Direct Government Operation'
+

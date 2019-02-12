@@ -39,7 +39,6 @@ def clean_col_country_name(input_data):
     """
     return input_data
 
-
 def clean_col_country_id(input_data):
     if input_data.isalpha():
         if len(input_data) == 2:
@@ -97,13 +96,33 @@ def clean_col_adm1(input_data):
     return input_data
 
 
-def clean_col_adm1(input_data):
+def clean_col_lat_deg(input_data):
     """
-    Clean values in column: "adm1"
-    Trello card: https://trello.com/c/HHzNs0hS/1-column-adm1
+    Clean values in column: "lat_deg"
+    Trello card: https://trello.com/c/51qHGAyc/25-column-latdeg-londeg
     """
-    input_data = input_data.upper()
-    input_data = input_data.strip()
+    output=round(input_data,4)
+    return output
+
+
+def clean_col_lon_deg(input_data):
+    """
+    Clean values in column: "lon_deg"
+    Trello card: https://trello.com/c/51qHGAyc/25-column-latdeg-londeg
+    """
+    output=round(input_data,4)
+    return output
+
+
+def clean_col_management(input_data):
+    """
+    Clean values in column: "management"
+    The code below cleans a particular value "Direct Government Operation" in the management column
+    Trello card: https://trello.com/c/DYWGoDG5/5-column-management
+    """
+
+    if input_data in ['Direct Government Operation?,', 'management']:
+        input_data = 'Direct Government Operation'
     return input_data
 
 
