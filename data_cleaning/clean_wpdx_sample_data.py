@@ -101,7 +101,11 @@ def clean_col_lat_deg(input_data):
     Clean values in column: "lat_deg"
     Trello card: https://trello.com/c/51qHGAyc/25-column-latdeg-londeg
     """
-    output=round(input_data,4)
+    output = input_data
+    if(isinstance(output, int) or isinstance(output, float)):
+        output=round(input_data,4)
+    elif(isinstance(output, str)):
+        output=round(float(input_data),4)
     return output
 
 
@@ -110,7 +114,11 @@ def clean_col_lon_deg(input_data):
     Clean values in column: "lon_deg"
     Trello card: https://trello.com/c/51qHGAyc/25-column-latdeg-londeg
     """
-    output=round(input_data,4)
+    output = input_data
+    if(isinstance(output, int) or isinstance(output, float)):
+        output=round(input_data,4)
+    elif(isinstance(output, str)):
+        output=round(float(input_data),4)
     return output
 
 
