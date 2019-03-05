@@ -8,7 +8,9 @@ def test_clean_col_country_name():
     """
     Test the cleaning for column: "country_name"
     """
-    assert cwsd.clean_col_country_name('NA') == 'NA'
+    assert cwsd.clean_col_country_name('Swaziland') == 'Eswatini'
+    assert cwsd.clean_col_country_name('Bolivia, Plurinational State of') == 'Bolivia (Plurinational State of)'
+    assert cwsd.clean_col_country_name('Congo, The Democratic Republic of the') == 'Congo (Democratic Republic of the)'
 
 
 def test_clean_col_country_id():

@@ -23,7 +23,7 @@ def clean_columns(input_file, output_file):
 
                 if col_name in dirty_col_list:
                     col_value = globals()['clean_col_' + col_name](col_value)
-  
+
                 if "," in str(col_value):
                     col_value = '"' + str(col_value) + '"'
 
@@ -37,7 +37,17 @@ def clean_col_country_name(input_data):
     Clean values in column: "country_name"
     Trello card: https://trello.com/c/HHzNs0hS/1-column-countryname
     """
+    replacements = {
+        'Swaziland': 'Eswatini', # country got renamed
+        'Bolivia, Plurinational State of': 'Bolivia (Plurinational State of)',
+        'Congo, The Democratic Republic of the': 'Congo (Democratic Republic of the)'
+    }
+
+    if input_data in replacements.keys():
+        return replacements[input_data]
+
     return input_data
+
 
 def clean_col_country_id(input_data):
     if input_data.isalpha():
