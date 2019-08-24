@@ -3,7 +3,7 @@ import pandas
 
 
 def clean_columns(input_file, output_file):
-    with open(input_file) as csvfile, open(output_file, 'wt') as writer:
+    with open(input_file, encoding="ISO-8859-1") as csvfile, open(output_file, 'wt') as writer:
         reader = csv.DictReader(csvfile)
         column_names = reader.fieldnames
         writer.write(','.join(column_names) + '\n')
